@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+
+  vars:
+    nbde_server_rotate_keys: yes
+
+  roles:
+    - linux-system-roles.nbde_server
