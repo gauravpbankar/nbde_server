@@ -1,8 +1,14 @@
 ---
-- hosts: localhost
+- hosts: all
 
   vars:
     nbde_server_rotate_keys: yes
 
   roles:
     - linux-system-roles.nbde_server
+  tasks:
+    - name: Print tang thp
+      shell: tang-show-keys 80
+      register: keys
+    - debug:
+            var: keys.stdout_lines
